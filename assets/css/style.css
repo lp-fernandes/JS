@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 
 :root {
-  --primary-color: rgb(33, 150, 243);
-  --primary-color-dark: rgb(21, 98, 130);
-  --background: #f0f2f5;
+  --primary-color: #ff7a00;             /* Laranja quente */
+  --primary-color-dark: #cc5f00;        /* Laranja escuro */
+  --background: #fff5eb;                /* Fundo suave quente */
   --text-color: #333;
   --border-radius: 8px;
 }
@@ -55,8 +55,12 @@ body {
   text-align: center;
   font-size: 1.9rem;
   font-weight: 600;
-  color: var(--primary-color-dark);
   margin-bottom: 8px;
+
+  /* GRADIENTE QUENTE → FRIO (de baixo para cima) */
+  background: linear-gradient(to top, #ff7a00, #1e90ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .login-subtitle {
@@ -94,10 +98,10 @@ form input::placeholder {
 form input:focus {
   border-color: var(--primary-color);
   outline: none;
-  box-shadow: 0 0 5px rgba(33,150,243, 0.35);
+  box-shadow: 0 0 5px rgba(255, 122, 0, 0.35);
 }
 
-/* Inputs com erro (Javascript usa esta classe) */
+/* Inputs com erro */
 input.error {
   border-color: rgb(231, 76, 60) !important;
   background: rgba(231, 76, 60, 0.06);
