@@ -76,10 +76,8 @@ body {
   font-weight: 600;
   margin-bottom: 8px;
 
-  /* Gradiente quente → frio (de baixo para cima) */
-  background: linear-gradient(to top, #ff7a00, #1e90ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  /* Cor azul sólida */
+  color: #1e90ff;
 }
 
 .login-subtitle {
