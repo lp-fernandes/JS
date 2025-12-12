@@ -3,7 +3,7 @@
 :root {
   --primary-color: rgb(33, 150, 243);
   --primary-color-dark: rgb(21, 98, 130);
-  --background: #f5f7fa;
+  --background: #f0f2f5;
   --text-color: #333;
   --border-radius: 8px;
 }
@@ -21,34 +21,52 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-}
-
-.login-container {
-  width: 100%;
-  max-width: 420px;
   padding: 20px;
 }
 
+/* Container do login */
+.login-container {
+  width: 100%;
+  max-width: 420px;
+}
+
+/* Card */
 .login-box {
   background: white;
   padding: 40px;
   border-radius: var(--border-radius);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Animação suave ao abrir */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .login-title {
   text-align: center;
-  font-size: 1.8rem;
+  font-size: 1.9rem;
+  font-weight: 600;
   color: var(--primary-color-dark);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .login-subtitle {
   text-align: center;
   margin-bottom: 25px;
   color: #555;
+  font-size: 0.95rem;
 }
 
+/* Estilo dos labels */
 form label {
   font-weight: 600;
   margin-bottom: 5px;
@@ -56,6 +74,7 @@ form label {
   color: #444;
 }
 
+/* Inputs */
 form input {
   width: 100%;
   height: 48px;
@@ -63,14 +82,28 @@ form input {
   margin-bottom: 18px;
   border-radius: var(--border-radius);
   border: 1px solid #ccc;
-  transition: border-color .3s;
+  transition: border-color .25s, box-shadow .25s;
+  cursor: text;
 }
 
+form input::placeholder {
+  color: #aaa;
+}
+
+/* Foco acessível */
 form input:focus {
   border-color: var(--primary-color);
   outline: none;
+  box-shadow: 0 0 5px rgba(33,150,243, 0.35);
 }
 
+/* Inputs com erro (Javascript usa esta classe) */
+input.error {
+  border-color: rgb(231, 76, 60) !important;
+  background: rgba(231, 76, 60, 0.06);
+}
+
+/* Botão */
 button {
   width: 100%;
   height: 50px;
@@ -81,13 +114,20 @@ button {
   font-weight: 600;
   border-radius: var(--border-radius);
   cursor: pointer;
-  transition: background .3s;
+  transition: background .25s, transform .1s;
 }
 
+/* Hover */
 button:hover {
   background: var(--primary-color-dark);
 }
 
+/* Efeito apertar */
+button:active {
+  transform: scale(0.97);
+}
+
+/* Texto inferior */
 .login-info {
   margin-top: 15px;
   text-align: center;
@@ -102,4 +142,15 @@ button:hover {
 
 .login-info a:hover {
   text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 420px) {
+  .login-box {
+    padding: 30px;
+  }
+
+  .login-title {
+    font-size: 1.6rem;
+  }
 }
