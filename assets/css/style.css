@@ -3,7 +3,6 @@
 :root {
   --primary-color: #ff7a00;             /* Laranja quente */
   --primary-color-dark: #cc5f00;        /* Laranja escuro */
-  --background: #fff5eb;                /* Fundo suave quente */
   --text-color: #333;
   --border-radius: 8px;
 }
@@ -16,7 +15,26 @@
 
 body {
   font-family: "Open Sans", sans-serif;
-  background: var(--background);
+
+  /* 🔥❄️ Fundo totalmente em código — imitando a imagem */
+  background:
+    /* Manchas quentes difusas */
+    radial-gradient(1200px at 80% 90%, rgba(255,120,0,0.55), transparent 70%),
+    radial-gradient(1000px at 20% 80%, rgba(255,160,60,0.45), transparent 60%),
+
+    /* Manchas frias */
+    radial-gradient(900px at 40% 10%, rgba(0,190,255,0.45), transparent 70%),
+    radial-gradient(1100px at 75% 5%, rgba(0,140,230,0.25), transparent 80%),
+
+    /* Degradê vertical quente → frio */
+    linear-gradient(to top, #ff7a00 0%, #ffb56b 25%, #7de1ff 70%, #1e90ff 100%);
+
+  background-blend-mode: screen, screen, overlay, normal;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  backdrop-filter: blur(3px);
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,14 +50,15 @@ body {
 
 /* Card */
 .login-box {
-  background: white;
+  background: rgba(255, 255, 255, 0.88);   /* translúcido */
   padding: 40px;
   border-radius: var(--border-radius);
-  box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+  box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+  backdrop-filter: blur(6px);
   animation: fadeIn 0.5s ease-out;
 }
 
-/* Animação suave ao abrir */
+/* Animação */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -57,7 +76,7 @@ body {
   font-weight: 600;
   margin-bottom: 8px;
 
-  /* GRADIENTE QUENTE → FRIO (de baixo para cima) */
+  /* Gradiente quente → frio (de baixo para cima) */
   background: linear-gradient(to top, #ff7a00, #1e90ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -66,16 +85,16 @@ body {
 .login-subtitle {
   text-align: center;
   margin-bottom: 25px;
-  color: #555;
+  color: #444;
   font-size: 0.95rem;
 }
 
-/* Estilo dos labels */
+/* Labels */
 form label {
   font-weight: 600;
   margin-bottom: 5px;
   display: block;
-  color: #444;
+  color: #333;
 }
 
 /* Inputs */
@@ -87,21 +106,19 @@ form input {
   border-radius: var(--border-radius);
   border: 1px solid #ccc;
   transition: border-color .25s, box-shadow .25s;
-  cursor: text;
 }
 
 form input::placeholder {
   color: #aaa;
 }
 
-/* Foco acessível */
 form input:focus {
   border-color: var(--primary-color);
   outline: none;
   box-shadow: 0 0 5px rgba(255, 122, 0, 0.35);
 }
 
-/* Inputs com erro */
+/* Erro */
 input.error {
   border-color: rgb(231, 76, 60) !important;
   background: rgba(231, 76, 60, 0.06);
@@ -121,12 +138,10 @@ button {
   transition: background .25s, transform .1s;
 }
 
-/* Hover */
 button:hover {
   background: var(--primary-color-dark);
 }
 
-/* Efeito apertar */
 button:active {
   transform: scale(0.97);
 }
