@@ -19,10 +19,9 @@ body {
 
   /* 🖼️ Fundo do sistema */
   background-image: url("../img/fundo-sistema.png");
-  background-size: cover;          /* cobre a tela toda */
-  background-position: center;     /* centraliza */
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;    /* efeito profissional */
 
   display: flex;
   justify-content: center;
