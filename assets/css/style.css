@@ -18,7 +18,7 @@ body {
   font-family: "Open Sans", sans-serif;
 
   /* 🖼️ Fundo do sistema */
-  background-image: url("assets/img/fundo-sistema.png");
+  background-image: url("/assets/img/fundo-sistema.png");
   background-size: cover;          /* cobre a tela toda */
   background-position: center;     /* centraliza */
   background-repeat: no-repeat;
