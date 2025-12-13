@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 
 :root {
-  --primary-color: #ff7a00;             /* Laranja quente */
-  --primary-color-dark: #cc5f00;        /* Laranja escuro */
+  --primary-color: rgb(32, 204, 226);
+  --primary-color-dark: rgb(72, 234, 255);
+  --background: #f0f2f5;
   --text-color: #333;
   --border-radius: 8px;
 }
@@ -16,24 +17,12 @@
 body {
   font-family: "Open Sans", sans-serif;
 
-  /* 🔥❄️ Fundo totalmente em código — imitando a imagem */
-  background:
-    /* Manchas quentes difusas */
-    radial-gradient(1200px at 80% 90%, rgba(255,120,0,0.55), transparent 70%),
-    radial-gradient(1000px at 20% 80%, rgba(255,160,60,0.45), transparent 60%),
-
-    /* Manchas frias */
-    radial-gradient(900px at 40% 10%, rgba(0,190,255,0.45), transparent 70%),
-    radial-gradient(1100px at 75% 5%, rgba(0,140,230,0.25), transparent 80%),
-
-    /* Degradê vertical quente → frio */
-    linear-gradient(to top, #ff7a00 0%, #ffb56b 25%, #7de1ff 70%, #1e90ff 100%);
-
-  background-blend-mode: screen, screen, overlay, normal;
-  background-size: cover;
+  /* 🖼️ Fundo do sistema */
+  background-image: url("../img/fundo-sistema.png");
+  background-size: cover;          /* cobre a tela toda */
+  background-position: center;     /* centraliza */
   background-repeat: no-repeat;
-
-  backdrop-filter: blur(3px);
+  background-attachment: fixed;    /* efeito profissional */
 
   display: flex;
   justify-content: center;
@@ -50,15 +39,14 @@ body {
 
 /* Card */
 .login-box {
-  background: rgba(255, 255, 255, 0.88);   /* translúcido */
+  background: rgba(255, 255, 255, 0.88);
   padding: 40px;
   border-radius: var(--border-radius);
-  box-shadow: 0 6px 25px rgba(0,0,0,0.15);
-  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 25px rgba(0,0,0,0.25);
   animation: fadeIn 0.5s ease-out;
 }
 
-/* Animação */
+/* Animação suave ao abrir */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -70,29 +58,34 @@ body {
   }
 }
 
-.login-title {
-  text-align: center;
-  font-size: 1.9rem;
-  font-weight: 600;
-  margin-bottom: 8px;
-
-  /* Cor azul sólida */
-  color: #1e90ff;
+/* Logo do sistema */
+.login-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
 }
 
+.login-logo img {
+  max-width: 180px;
+  width: 100%;
+  height: auto;
+}
+
+/* Subtítulo */
 .login-subtitle {
   text-align: center;
   margin-bottom: 25px;
-  color: #444;
+  color: #555;
   font-size: 0.95rem;
 }
 
-/* Labels */
+/* Estilo dos labels */
 form label {
   font-weight: 600;
   margin-bottom: 5px;
   display: block;
-  color: #333;
+  color: #444;
 }
 
 /* Inputs */
@@ -104,19 +97,21 @@ form input {
   border-radius: var(--border-radius);
   border: 1px solid #ccc;
   transition: border-color .25s, box-shadow .25s;
+  cursor: text;
 }
 
 form input::placeholder {
   color: #aaa;
 }
 
+/* Foco acessível */
 form input:focus {
   border-color: var(--primary-color);
   outline: none;
-  box-shadow: 0 0 5px rgba(255, 122, 0, 0.35);
+  box-shadow: 0 0 5px rgba(33,150,243, 0.35);
 }
 
-/* Erro */
+/* Inputs com erro (Javascript usa esta classe) */
 input.error {
   border-color: rgb(231, 76, 60) !important;
   background: rgba(231, 76, 60, 0.06);
@@ -136,10 +131,12 @@ button {
   transition: background .25s, transform .1s;
 }
 
+/* Hover */
 button:hover {
   background: var(--primary-color-dark);
 }
 
+/* Efeito apertar */
 button:active {
   transform: scale(0.97);
 }
@@ -167,7 +164,7 @@ button:active {
     padding: 30px;
   }
 
-  .login-title {
-    font-size: 1.6rem;
+  .login-logo img {
+    max-width: 150px;
   }
 }
